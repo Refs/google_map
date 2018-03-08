@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map{
+            height: 300px;
+            width: 100%;
+            background: yellow;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script>
+    function initMap() {
+        var myLatLng = {
+            lat: -25.263,
+            lng: 131.044
+        }
+
+        var map = new google.maps.Map($('#map')[0],{
+            zoom: 4,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            title: 'hello world!'
+        })
+
+        marker.setMap(map);
+    }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYFaTq-zur0&language=ja&callback=initMap">
+</script>
