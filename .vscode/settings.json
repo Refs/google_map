@@ -1,5 +1,5 @@
 {
     "liveSassCompile.settings.includeItems": [
-        "/google-maps/sass/main.scss"
+        "${workspaceRoot}/google-maps/sass/main.scss"
     ]
 }
