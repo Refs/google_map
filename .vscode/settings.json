@@ -4,6 +4,13 @@
     ],
     "liveSassCompile.settings.autoprefix": [
         "> 1%"
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/google-maps/build/css/"
+        }
     ]
 }
 
