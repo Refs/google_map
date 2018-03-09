@@ -1,9 +1,11 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
         "sourceMap": true,
-        "allowJs": true
+        "allowJs": true,
+        "outDir": "./build/js"
     },
     "exclude": [
         "node_modules"
