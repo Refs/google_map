@@ -1,1 +1,6 @@
-@import './dfsd.scss'
+.sidebar {
+    width: 300px;
+    @media screen and (orientation: landscape) {
+      width: 500px;
+    }
+  }
