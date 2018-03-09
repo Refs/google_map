@@ -1,7 +1,3 @@
-/**
- * 
- * 
- */
 class Startup {
     public static main():number {
         console.log('133');
