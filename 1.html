@@ -20,15 +20,45 @@
 </html>
 <script src="./bower_components/jquery/dist/jquery.js"></script>
 <script>
+    // 已知 lat 与 lng 在地图上标注点的位置
+
+    var st = [
+        {
+            title: "盛烨一号电站",
+            lat: -25.363,
+            lng: 131.044,
+            content: {
+                name: '盛烨一号电站',
+                des: '太阳能是人类取之不尽用之不竭的可再生能源，近年来随着光伏产业规模的不断壮大，光伏电站的建设规模也日趋增长。电站具有充分的清洁性、安全性、寿命长、资源的充足性及潜在的经济性等优点，在长期的能源战略中具有重要地位。盛烨电子的电站就位于安徽 合肥 蜀山区，电站的建成将有助于再生能源的利用、有效的保护环境以及提高个人收入等。'
+            }
+        },
+        {
+            title: "工投测试5KW电站",
+            lat: -29.363,
+            lng: 126.044,
+            content: {
+                name: '工投测试5KW电站',
+                des: '工投测试5KW电站位于合肥市庐阳区工投产业园实验楼楼顶，用于安徽大恒能源科技有限公司研发中心试验使用，整体发电正常。'
+            }
+        },
+    ]; 
+
+    // 将数据封装在一个包里面；
+
     function initMap() {
-        var myLatLng = {
+        var c = {
             lat: -25.263,
             lng: 131.044
         }
 
         var map = new google.maps.Map($('#map')[0],{
-            zoom: 4,
-            center: myLatLng
+            zoom: 4
+        });
+
+        // 用来设置地图的中心位置；
+        map.setCenter({
+            lat: -25.263,
+            lng: 131.044
         });
 
         var marker = new google.maps.Marker({
@@ -43,3 +73,8 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYFaTq-zur0&language=ja&callback=initMap">
 </script>
+
+<!-- es6转es5 -->
+<!-- typescript 转 es5 --> 
+<!-- 采用typescript 编写js  -->
+<!-- 采用sass编写css 是对这一段时间，自己学习的总结，研究好这一点也算是对自己的一个交代了 -->
