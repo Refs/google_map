@@ -10,7 +10,7 @@
     },
     // 最好能值编译某一个文件
     "files": [
-        "test.ts"
+        "app.ts"
     ],
     "exclude": [
         "node_modules"
