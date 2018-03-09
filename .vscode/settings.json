@@ -1,5 +1,9 @@
 {
     "liveSassCompile.settings.includeItems": [
-        "${workspaceRoot}/google-maps/sass/main.scss"
+        "google-maps/sass/main.scss"
+    ],
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%"
     ]
 }
+
