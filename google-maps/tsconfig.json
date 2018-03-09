@@ -6,8 +6,12 @@
         "sourceMap": true,
         // 打开这一项 会造成源文件与编译后的文件的符号产生冲突；
         "allowJs": false,
-        "outDir": "./build/js"
+        "outDir": "./build/js",
     },
+    // 最好能值编译某一个文件
+    "files": [
+        "test.ts"
+    ],
     "exclude": [
         "node_modules"
     ]

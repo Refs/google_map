@@ -7,5 +7,4 @@ var Startup = /** @class */ (function () {
     };
     return Startup;
 }());
-Startup.main();
 //# sourceMappingURL=test.js.map
