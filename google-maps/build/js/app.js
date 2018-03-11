@@ -1,10 +1,17 @@
-var Startup1 = /** @class */ (function () {
-    function Startup1() {
+var GoogleMap = /** @class */ (function () {
+    function GoogleMap(domSelector) {
+        this.domSelector = domSelector;
+        this.mapElement = $(domSelector);
+        this.initMap();
     }
-    Startup1.main = function () {
-        console.log('133');
-        return 0;
+    GoogleMap.prototype.initMap = function () {
+        var map = new google.maps.Map(this.mapElement[0]);
+        map.setZoom(4);
+        map.setCenter({
+            lat: 23.3,
+            lng: 34.2
+        });
     };
-    return Startup1;
+    return GoogleMap;
 }());
 //# sourceMappingURL=app.js.map

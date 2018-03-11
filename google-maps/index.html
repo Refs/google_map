@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./build/css/main.css">
 </head>
+
 <body>
     <div class="map"></div>
     
 </body>
 </html>
+
+<!-- jquery -->
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+
+<!-- custom js -->
+<script src="./build/js/app.js"></script>
+
+<!-- google.maps lib -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYFaTq-zur0&language=ja&callback=initMap">
+</script>
+
+<!-- callback handler -->
+
+<script>
+    function initMap() {
+        var map = new GoogleMap('.map')
+    }
+</script>
