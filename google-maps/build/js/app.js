@@ -3,16 +3,18 @@ var GoogleMap = /** @class */ (function () {
         this.domSelector = domSelector;
         this.markers = [];
         this.mapElement = $(domSelector);
-        this.initMap();
     }
     GoogleMap.prototype.initMap = function () {
-        var _this = this;
         this.map = new google.maps.Map(this.mapElement[0]);
         this.map.setZoom(4);
         this.map.setCenter({
             lat: 23.3,
             lng: 34.2
         });
+        // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
+    };
+    GoogleMap.prototype.listenMapClick = function () {
+        var _this = this;
         this.map.addListener('click', function (event) {
             console.log(event.latLng.lat());
             _this.addMarker(event.latLng);

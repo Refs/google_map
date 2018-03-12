@@ -13,7 +13,8 @@
     },
     // 最好能值编译某一个文件
     "files": [
-        "ts/app.ts"
+        "ts/app.ts",
+        "ts/infoWindows.ts"
     ],
     "exclude": [
         "node_modules"

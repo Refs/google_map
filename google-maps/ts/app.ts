@@ -8,7 +8,6 @@ class GoogleMap {
     markerPosition:LatLng;
     constructor (public domSelector:string){
         this.mapElement = $(domSelector);
-        this.initMap();
     }
 
     initMap (){
@@ -18,6 +17,9 @@ class GoogleMap {
             lat:23.3,
             lng: 34.2
         })
+        // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
+    }
+    listenMapClick (){
         this.map.addListener('click',(event)=>{
             console.log(event.latLng.lat());
             this.addMarker(event.latLng);
