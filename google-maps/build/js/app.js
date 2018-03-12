@@ -29,6 +29,21 @@ var GoogleMap = /** @class */ (function () {
         // })
         console.log(this.marker.getPosition());
         this.markers.push(this.marker);
+        this.allMarkerListen();
+    };
+    // 所有的marker 去监听click事件；
+    // lat
+    GoogleMap.prototype.allMarkerListen = function () {
+        var _this = this;
+        var _loop_1 = function (i) {
+            this_1.markers[i].addListener('click', function () {
+                _this.markers[i].setMap(null);
+            });
+        };
+        var this_1 = this;
+        for (var i = 0; i < this.markers.length; i++) {
+            _loop_1(i);
+        }
     };
     return GoogleMap;
 }());

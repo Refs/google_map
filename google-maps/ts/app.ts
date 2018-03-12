@@ -35,9 +35,17 @@ class GoogleMap {
         // })
         console.log(this.marker.getPosition());
         this.markers.push(this.marker);
+        this.allMarkerListen();
     }
     // 所有的marker 去监听click事件；
     // lat
+    allMarkerListen () {
+        for (let i=0; i<this.markers.length; i++) {
+            this.markers[i].addListener('click',()=>{
+                this.markers[i].setMap(null);
+            })
+        }
+    }
 
 }
 
