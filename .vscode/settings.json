@@ -11,6 +11,7 @@
             "extensionName": ".css",
             "savePath": "/google-maps/build/css/"
         }
-    ]
+    ],
+    "view-in-browser.customBrowser": "chrome"
 }
 

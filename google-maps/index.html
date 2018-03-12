@@ -14,11 +14,15 @@
 </body>
 </html>
 
+
 <!-- jquery -->
 <script src="./node_modules/jquery/dist/jquery.js"></script>
 
-<!-- custom js -->
+<!-- 点击标注 js -->
 <script src="./build/js/app.js"></script>
+
+<!-- infoWindows js -->
+<!-- <script src="./build/js/infoWindows.js"></script> -->
 
 <!-- google.maps lib -->
 <script async defer
@@ -27,10 +31,25 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYF
 
 <!-- callback handler -->
 
-<script>
+<!-- 点击标注 -->
+<!-- <script>
     function initMap() {
         var map = new GoogleMap('.map');
-        map.initMap();
+
+        map.initMap({
+            lat:24.3,
+            lng:27.3
+        },4);
         map.listenMapClick();
     }
+</script> -->
+
+<script>
+     function initMap() {
+        var map = new infoWindows('.map', 4 ,{
+            lat:24.3,
+            lng:32.1
+        });
+    }
 </script>
+
