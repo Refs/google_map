@@ -39,7 +39,7 @@ var GoogleMap = /** @class */ (function () {
         // this.marker.addListener('click',()=> {
         //     this.marker.setMap(null);
         // })
-        console.log(this.marker.getPosition().lat());
+        //  console.log(this.marker.getPosition().lat());
         this.markers.push(this.marker);
         this.listenMarkerClick();
     };
