@@ -6,7 +6,8 @@
  class GoogleMap {
      map: google.maps.Map;
      marker: google.maps.Marker;
-     markers: any;
+    //  为其赋一个初始值，防止在编译后的js上面，调用marker的方法时，marker会报undefine; 因为类型不会参与编译，所以我们去调用marker.push方法没用，会报undefine；
+     markers:Array<any>=[];
      mapElement: JQuery;
      mapDom: Element;
      markerPosition: {

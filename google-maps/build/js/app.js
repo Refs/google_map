@@ -14,6 +14,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var GoogleMap = /** @class */ (function () {
     function GoogleMap() {
+        //  为其赋一个初始值，防止在编译后的js上面，调用marker的方法时，marker会报undefine; 因为类型不会参与编译，所以我们去调用marker.push方法没用，会报undefine；
+        this.markers = [];
     }
     GoogleMap.prototype.initMap = function (selector, position, zoom) {
         this.map = new google.maps.Map($(selector)[0]);
