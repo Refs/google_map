@@ -18,7 +18,7 @@ https://stackoverflow.com/questions/43042889/typescript-referenceerror-exports-i
 
 
 
-# How to use Typescript with native ES6 Promises
+# How to use Typescript with native ES6 Promises  这个已经解决；
 
 
 Alternative #1
@@ -51,3 +51,7 @@ It's unclear what lib option you are using. es2015.promise, es5, dom will probab
 npm install --save @types/es6-promise
 
 ```
+
+### 跨域问题的解决
+
+https://www.youtube.com/watch?time_continue=1&v=uDy_cvf4nDg

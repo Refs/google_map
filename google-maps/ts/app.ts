@@ -91,6 +91,7 @@
      }
 
      getMarkerPosition (url:string) {
+         console.log(url);
          var myPromise = this.getAsyncPromise(url);
          myPromise.then((json)=>{
             console.log('Contents: ' + json);
