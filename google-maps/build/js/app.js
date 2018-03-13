@@ -57,11 +57,41 @@ var GoogleMap = /** @class */ (function () {
     };
     return GoogleMap;
 }());
+// using promise have to set "lib": [es2015.promise dom es5]  
 var infoWindows = /** @class */ (function (_super) {
     __extends(infoWindows, _super);
     function infoWindows() {
         return _super.call(this) || this;
     }
+    infoWindows.prototype.getAsyncPromise = function (url) {
+        return new Promise(function (resolve, reject) {
+            var client = new XMLHttpRequest();
+            client.open("GET", url);
+            var handler = function () {
+                if (client.readyState !== 4) {
+                    return;
+                }
+                if (client.status === 200) {
+                    resolve(client.response);
+                }
+                else {
+                    reject(new Error(client.statusText));
+                }
+            };
+            client.onreadystatechange = handler;
+            client.responseType = "json";
+            client.setRequestHeader("Accept", "application/json");
+            client.send();
+        });
+    };
+    infoWindows.prototype.getMarkerPosition = function (url) {
+        var myPromise = this.getAsyncPromise(url);
+        myPromise.then(function (json) {
+            console.log('Contents: ' + json);
+        }, function (error) {
+            console.error('出错了', error);
+        });
+    };
     return infoWindows;
 }(GoogleMap));
 //# sourceMappingURL=app.js.map
