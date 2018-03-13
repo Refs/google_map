@@ -1,3 +1,7 @@
+// class LatLngStructor{
+//     lat:number;
+//     lng:Number
+// }
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9,13 +13,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var GoogleMap = /** @class */ (function () {
-    function GoogleMap(domSelector) {
-        this.domSelector = domSelector;
-        this.markers = [];
-        this.mapElement = $(domSelector);
+    function GoogleMap() {
     }
-    GoogleMap.prototype.initMap = function (position, zoom) {
-        this.map = new google.maps.Map(this.mapElement[0]);
+    GoogleMap.prototype.initMap = function (selector, position, zoom) {
+        this.map = new google.maps.Map($(selector)[0]);
         this.map.setZoom(zoom);
         this.map.setCenter(position);
         // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
@@ -58,17 +59,9 @@ var GoogleMap = /** @class */ (function () {
 }());
 var infoWindows = /** @class */ (function (_super) {
     __extends(infoWindows, _super);
-    function infoWindows(domSelector, zoom, location) {
-        var _this = _super.call(this, domSelector) || this;
-        _this.domSelector = domSelector;
-        _this.zoom = zoom;
-        _this.location = location;
-        console.log(_this.zoom);
-        _super.prototype.initMap.call(_this, _this.position, _this.zoom);
-        return _this;
+    function infoWindows() {
+        return _super.call(this) || this;
     }
-    infoWindows.prototype.initInfoWindows = function () {
-    };
     return infoWindows;
 }(GoogleMap));
 //# sourceMappingURL=app.js.map

@@ -34,9 +34,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYF
 <!-- 点击标注 -->
 <!-- <script>
     function initMap() {
-        var map = new GoogleMap('.map');
+        var map = new GoogleMap();
 
-        map.initMap({
+        map.initMap('.map',{
             lat:24.3,
             lng:27.3
         },4);
@@ -46,10 +46,12 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv5HzNhN9EY1sOMswZj_UBjYF
 
 <script>
      function initMap() {
-        var map = new infoWindows('.map', 4 ,{
+        var map = new infoWindows();
+        map.initMap('.map',{
             lat:24.3,
-            lng:32.1
-        });
+            lng:27.3
+        },4);
+
     }
 </script>
 

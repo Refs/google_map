@@ -1,25 +1,32 @@
  
+
+// class LatLngStructor{
+//     lat:number;
+//     lng:Number
+// }
+
 class GoogleMap {
     map:google.maps.Map;
     marker:google.maps.Marker;
-    markers:Array<google.maps.Marker> = [ ];
+    markers:any;
     mapElement:JQuery;
     mapDom: Element;
     markerPosition:{
         lat:number,
-        lng:Number
+        lng:number
     } ;
     position: {
         lat:number,
-        lng:Number
+        lng:number
     }
     zoom:number;
-    constructor (public domSelector:string){
-        this.mapElement = $(domSelector);
+    selector: string;
+
+    constructor (){
     }
 
-    initMap (position, zoom){
-        this.map = new google.maps.Map(this.mapElement[0]);
+    initMap (selector,position, zoom){
+        this.map = new google.maps.Map($(selector)[0]);
         this.map.setZoom(zoom);
         this.map.setCenter(position)
         // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
@@ -60,20 +67,12 @@ class GoogleMap {
 
 class infoWindows extends GoogleMap {
 
-    constructor(
-        public domSelector: string,
-        public zoom: number,
-        public location: {
-            lat:string,
-            lng:string
-        }
-    ) {
-        super(domSelector);
-        console.log(this.zoom);
-        super.initMap(this.position, this.zoom ) 
+    constructor() {
+        super();
     }
 
-    initInfoWindows() {
+    
+    
 
-    }
+
 }
