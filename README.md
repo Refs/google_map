@@ -56,4 +56,9 @@ npm install --save @types/es6-promise
 
 https://stackoverflow.com/questions/20035101/why-does-my-javascript-get-a-no-access-control-allow-origin-header-is-present
 
-https://www.youtube.com/watch?time_continue=1&v=uDy_cvf4nDg
+
+The easy way is to just add the extension in google chrome to allow access using CORS.
+
+(https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)
+
+Just enable this extension whenever you want allow access to no 'access-control-allow-origin' header request.
