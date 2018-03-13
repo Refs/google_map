@@ -87,8 +87,8 @@ var infoWindows = /** @class */ (function (_super) {
     infoWindows.prototype.getMarkerPosition = function (url) {
         console.log(url);
         var myPromise = this.getAsyncPromise(url);
-        myPromise.then(function (json) {
-            console.log('Contents: ' + json);
+        myPromise.then(function (markerData) {
+            console.log(markerData);
         }, function (error) {
             console.error('出错了', error);
         });

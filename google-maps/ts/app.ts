@@ -93,8 +93,8 @@
      getMarkerPosition (url:string) {
          console.log(url);
          var myPromise = this.getAsyncPromise(url);
-         myPromise.then((json)=>{
-            console.log('Contents: ' + json);
+         myPromise.then((markerData)=>{
+            console.log(markerData);
          },(error)=>{
             console.error('出错了', error);
          })
@@ -103,7 +103,5 @@
 
 
     
-
-
 
  }
