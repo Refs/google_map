@@ -62,3 +62,18 @@ The easy way is to just add the extension in google chrome to allow access using
 (https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US)
 
 Just enable this extension whenever you want allow access to no 'access-control-allow-origin' header request.
+
+
+### 编译后的js常报undefine的错误
+
+```js
+class GoogleMap {
+  
+    //  为其赋一个初始值，防止在编译后的js上面，调用marker的方法时，marker会报undefine; 因为类型不会参与编译，所以我们去调用marker.push方法没用，会报undefine；
+    // 所以除了给其一个初始值之外，还应给其一个初始的空对象； 这是一个关于底层理解的要点；
+     markers:Array<any>=[];
+     mapElement: JQuery;
+     mapDom: Element;
+
+
+```
