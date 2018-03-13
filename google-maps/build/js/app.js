@@ -14,18 +14,18 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var GoogleMap = /** @class */ (function () {
     function GoogleMap() {
-        //  为其赋一个初始值，防止在编译后的js上面，调用marker的方法时，marker会报undefine; 因为类型不会参与编译，所以我们去调用marker.push方法没用，会报undefine；
         this.markers = [];
     }
     GoogleMap.prototype.initMap = function (selector, position, zoom) {
         this.map = new google.maps.Map($(selector)[0]);
         this.map.setZoom(zoom);
         this.map.setCenter(position);
-        // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
     };
     GoogleMap.prototype.listenMapClick = function () {
         var _this = this;
         this.map.addListener('click', function (event) {
+            //  调取event.latLng.lat()获取经度
+            //  调取event.latLng.lng()获取经度
             console.log(event.latLng.lat());
             _this.addMarker(event.latLng);
         });
@@ -39,7 +39,7 @@ var GoogleMap = /** @class */ (function () {
         // this.marker.addListener('click',()=> {
         //     this.marker.setMap(null);
         // })
-        console.log(this.marker.getPosition());
+        console.log(this.marker.getPosition().lat());
         this.markers.push(this.marker);
         this.listenMarkerClick();
     };
@@ -95,6 +95,7 @@ var infoWindows = /** @class */ (function (_super) {
                 // console.log(`<p>${markerData[i].des}</p>`)
                 var infowindow = new google.maps.InfoWindow({
                     content: "\n                    <h3 class='markerTitle'>\u6211\u662F\u4E00\u4E2A\u5C0F\u661F\u661F \u554A\u554A\u554A\u554A<h3>\n                    <p>" + markerData[i].des + "</p>\n                    "
+                    // 可以利用maxWidth来设置info的宽度；
                 });
                 var marker = new google.maps.Marker({
                     position: {

@@ -6,7 +6,6 @@
  class GoogleMap {
      map: google.maps.Map;
      marker: google.maps.Marker;
-    //  为其赋一个初始值，防止在编译后的js上面，调用marker的方法时，marker会报undefine; 因为类型不会参与编译，所以我们去调用marker.push方法没用，会报undefine；
      markers:Array<any>=[];
      mapElement: JQuery;
      mapDom: Element;
@@ -27,11 +26,12 @@
          this.map = new google.maps.Map($(selector)[0]);
          this.map.setZoom(zoom);
          this.map.setCenter(position)
-         // 不要再一个方法中去调用另外一个方法，防止方法被耦合在一起；
      }
 
      listenMapClick() {
          this.map.addListener('click', (event) => {
+            //  调取event.latLng.lat()获取经度
+            //  调取event.latLng.lng()获取经度
              console.log(event.latLng.lat());
              this.addMarker(event.latLng);
          })
@@ -46,7 +46,7 @@
          // this.marker.addListener('click',()=> {
          //     this.marker.setMap(null);
          // })
-         console.log(this.marker.getPosition());
+         console.log(this.marker.getPosition().lat());
          this.markers.push(this.marker);
          this.listenMarkerClick();
      }
@@ -108,6 +108,7 @@
                     <h3 class='markerTitle'>我是一个小星星 啊啊啊啊<h3>
                     <p>${markerData[i].des}</p>
                     `
+                    // 可以利用maxWidth来设置info的宽度；
                 });
                 let marker = new google.maps.Marker({
                     position:{
