@@ -54,4 +54,6 @@ npm install --save @types/es6-promise
 
 ### 跨域问题的解决
 
+https://stackoverflow.com/questions/20035101/why-does-my-javascript-get-a-no-access-control-allow-origin-header-is-present
+
 https://www.youtube.com/watch?time_continue=1&v=uDy_cvf4nDg
