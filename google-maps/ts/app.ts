@@ -65,6 +65,11 @@
 
  class infoWindows extends GoogleMap {
 
+    markerArray:Array<{
+        infowindow: google.maps.InfoWindow;
+        marker: google.maps.Marker;
+
+    }>;
      constructor() {
          super();
      }
@@ -93,15 +98,38 @@
      getMarkerPosition (url:string) {
          console.log(url);
          var myPromise = this.getAsyncPromise(url);
-         myPromise.then((markerData)=>{
-            console.log(markerData);
+         myPromise.then((markerData: Array<{lat:number,lng:number,des:string}>)=>{
+            // console.log(`fadfasdf<p>${markerData[0].des}<p>`);
+            for(let i=0; i<markerData.length;i++){
+                // console.log(`<p>${markerData[i].des}</p>`)
+                let infowindow = new google.maps.InfoWindow({
+                    content:`<p>${markerData[i].des}</p>`
+                });
+                let marker = new google.maps.Marker({
+                    position:{
+                        lat:markerData[i].lat,
+                        lng:markerData[i].lng
+                    },
+                    map: this.map
+                });
+                marker.addListener('click', function() {
+                    infowindow.open(this.map, marker);
+                });
+            }
+            
          },(error)=>{
             console.error('出错了', error);
          })
-
      }
 
+    initInfoWindow (){
 
+    }
+
+     initMarker(markerDta) {
+
+     }
+   
     
 
  }

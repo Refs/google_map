@@ -85,13 +85,37 @@ var infoWindows = /** @class */ (function (_super) {
         });
     };
     infoWindows.prototype.getMarkerPosition = function (url) {
+        var _this = this;
         console.log(url);
         var myPromise = this.getAsyncPromise(url);
         myPromise.then(function (markerData) {
-            console.log(markerData);
+            var _loop_2 = function (i) {
+                // console.log(`<p>${markerData[i].des}</p>`)
+                var infowindow = new google.maps.InfoWindow({
+                    content: "<p>" + markerData[i].des + "</p>"
+                });
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData[i].lat,
+                        lng: markerData[i].lng
+                    },
+                    map: _this.map
+                });
+                marker.addListener('click', function () {
+                    infowindow.open(this.map, marker);
+                });
+            };
+            // console.log(`fadfasdf<p>${markerData[0].des}<p>`);
+            for (var i = 0; i < markerData.length; i++) {
+                _loop_2(i);
+            }
         }, function (error) {
             console.error('出错了', error);
         });
+    };
+    infoWindows.prototype.initInfoWindow = function () {
+    };
+    infoWindows.prototype.initMarker = function (markerDta) {
     };
     return infoWindows;
 }(GoogleMap));
